@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Hello World!</title>
+    <!-- linking to PyScript assets -->
+    <link rel="stylesheet" href="https://pyscript.net/releases/2022.12.1/pyscript.css" />
+    <script defer src="https://pyscript.net/releases/2022.12.1/pyscript.js"></script>
+  </head>
+  <body>
+    <style>
+code {
+  font-family: Consolas,"courier new";
+  color: crimson;
+  background-color: #f1f1f1;
+  padding: 2px;
+  font-size: 105%;
+  border-radius: 5px;
+}
+</style>
+  <!-- Put Python code inside the <py-script> tag -->
+    <p><code>Ctrl + Shift + i</code> to edit the code</p>
+      <py-script>
+        # By wanets: https://i.ibb.co/5YkGHx7/image.png
+#██╗░░██╗░█████╗░░█████╗░██╗░░██╗  ███╗░░░███╗███████╗██╗
+#██║░░██║██╔══██╗██╔══██╗██║░██╔╝  ████╗░████║██╔════╝╚═╝
+#███████║███████║██║░░╚═╝█████═╝░  ██╔████╔██║█████╗░░░░░
+#██╔══██║██╔══██║██║░░██╗██╔═██╗░  ██║╚██╔╝██║██╔══╝░░░░░
+#██║░░██║██║░░██║╚█████╔╝██║░╚██╗  ██║░╚═╝░██║███████╗██╗
+#╚═╝░░╚═╝╚═╝░░╚═╝░╚════╝░╚═╝░░╚═╝  ╚═╝░░░░░╚═╝╚══════╝╚═╝
+# HackMe is made for fun. Please don't use it for real hacking
+
+
+
+
+#Cͨoͦdͩeͤ:
+# The hack is simple: Edit, Delete, and Create...and Read
+def readmode(fil):
+    f = open(fil, "r")
+    print("The file content now is:",f.read())
+def editmode(fil):
+    f = open(fil, "w")
+    text = input("Change file content to:")
+    f.write(text)
+    f.close()
+def makemode(fil):
+    f = open(fil, "x")
+def delmode(fil):
+    os.remove(fil)
+# My idea is to make a working console:
+def console():
+    console = str(input("[E]dit file, [Del]ete file, [C]reate a file or [R]ead file...More commands COMING SOON"))
+    fil = str((input("Type the file name(like 'ReadMe.txt')")))
+    if console == "E":
+        editmode(fil)
+    elif console == "Del":
+        delmode(fil)
+    elif console == "C":
+        makemode(fil)
+    elif console == "R":
+        readmode(fil)
+    else:
+        print("No console command provided. Please rerun")
+console()
+      </py-script>
+    </div>
+  </body>
+</html>
