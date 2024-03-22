@@ -1,4 +1,27 @@
-import time
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Hello World!</title>
+    <!-- linking to PyScript assets -->
+    <link rel="stylesheet" href="https://pyscript.net/releases/2022.12.1/pyscript.css" />
+    <script defer src="https://pyscript.net/releases/2022.12.1/pyscript.js"></script>
+  </head>
+  <body>
+    <style>
+code {
+  font-family: Consolas,"courier new";
+  color: crimson;
+  background-color: #f1f1f1;
+  padding: 2px;
+  font-size: 105%;
+  border-radius: 5px;
+}
+</style>
+  <!-- Put Python code inside the the <py-script> tag -->
+    <p><code>Ctrl + Shift + i</code> to edit the code</p>
+      <py-script>import time
 #╔═══╗      ╔╗ ╔╗   ╔═══╗        ╔╗       
 #║╔═╗║     ╔╝╚╗║║   ║╔══╝        ║║       
 #║╚═╝║╔══╗ ╚╗╔╝║╚═╗ ║╚══╗╔╗╔═╗ ╔═╝║╔══╗╔═╗
@@ -78,4 +101,7 @@ def main():
             
 
 if __name__ == "__main__":
-    main()
+    main()</py-script>
+    </div>
+  </body>
+</html>
