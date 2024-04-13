@@ -1,16 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Hello World!</title>
-    <!-- linking to PyScript assets -->
-    <link rel="stylesheet" href="https://pyscript.net/releases/2022.12.1/pyscript.css" />
-    <script defer src="https://pyscript.net/releases/2022.12.1/pyscript.js"></script>
-  </head>
-  <body>
-    <style>
-code {
+<html>
+<head>
+<title>WanetsCode</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<style>
+body {font-family: "Courier New", Georgia, Serif;}
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Playfair Display";
+  letter-spacing: 5px;
+}
+  code {
   font-family: Consolas,"courier new";
   color: crimson;
   background-color: #f1f1f1;
@@ -19,7 +20,21 @@ code {
   border-radius: 5px;
 }
 </style>
-  <!-- Put Python code inside the <py-script> tag -->
+</head>
+<body>
+<p>&nbsp;</p>
+<!-- Navbar (sit on top) -->
+<div class="w3-top">
+<div class="w3-bar w3-white w3-padding w3-card" style="letter-spacing: 4px;"><a class="w3-bar-item w3-button" href="wanetscode.github.io
+/project/live">WanetsCode<strong><span style="color: #ff0000;"><sup>Live</sup></span></strong></a> <!-- Right-sided navbar links. Hide them on small screens -->
+<div class="w3-right w3-hide-small"><a class="w3-bar-item w3-button" href="wanetscode.github.io
+/project">Projects</a> <a class="w3-bar-item w3-button" href="wanetscode.github.io
+/play">Playground</a> <a class="w3-bar-item w3-button" href="wanetscode.github.io
+/start">Homepage</a></div>
+</div>
+</div>
+<!-- Page content -->
+<!-- Put Python code inside the <py-script> tag -->
     <p><code>The "input()"s</code> may not work, because the code is being executed in a non-python compiler. We strongly recommend getting the source code and opening the program in 3rd-party software.</p>
       <py-script>
         # By wanets: https://i.ibb.co/5YkGHx7/image.png
@@ -64,6 +79,7 @@ def console():
         print("No console command provided. Please rerun")
 console()
       </py-script>
-    </div>
-  </body>
+<!-- End page content -->
+<p></p>
+<!-- Footer -->
 </html>
