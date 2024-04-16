@@ -1,0 +1,350 @@
+<style>
+* {
+	box-sizing:border-box;
+}
+body {
+	margin:0;
+}
+.gjs-heading {
+	margin:0;
+}
+.gjs-grid-column {
+	flex:1 1 0%;
+	padding:5px 0;
+}
+.gjs-grid-row {
+	display:flex;
+	justify-content:flex-start;
+	align-items:stretch;
+	flex-direction:row;
+	min-height:auto;
+	padding:10px 0;
+}
+#ihtxj {
+	color:black;
+	width:38px;
+	height:38px;
+	transition:all 1s ease-in-out 0s;
+	backface-visibility:hidden;
+	transform-style:flat;
+	transform:scale(110%);
+}
+.gjs-link {
+	vertical-align:top;
+	max-width:100%;
+	display:inline-block;
+	text-decoration:none;
+	color:inherit;
+}
+#ii2rd {
+	padding:10px;
+	font-family:Arial,Helvetica,sans-serif;
+	padding-left:20px;
+	padding-right:20px;
+	color:rgba(255,255,255,1);
+}
+#icfyb {
+	padding:10px;
+	font-family:Arial,Helvetica,sans-serif;
+	padding-left:20px;
+	padding-right:20px;
+	color:rgba(255,255,255,1);
+}
+#i88iz {
+	padding:10px;
+	font-family:Arial,Helvetica,sans-serif;
+	padding-left:20px;
+	padding-right:20px;
+	color:rgba(255,255,255,1);
+}
+#irz7b {
+	justify-content:center;
+	padding-top:80px;
+	padding-bottom:80px;
+	padding-left:20px;
+	padding-right:20px;
+}
+#iycz3 {
+	max-width:1200px;
+	align-items:center;
+	display:flex;
+	flex-direction:column;
+	gap:10px;
+}
+#irjua {
+	font-size:3rem;
+}
+#itndw {
+	padding:10px;
+	max-width:750px;
+	margin-bottom:25px;
+}
+#iar3s {
+	padding:10px;
+	padding-left:20px;
+	padding-right:20px;
+	text-transform:uppercase;
+	font-family:Arial,Helvetica,sans-serif;
+	letter-spacing:3px;
+	background-color:black;
+	color:white;
+	display:inline-block;
+	border-top-left-radius:3px;
+	border-top-right-radius:3px;
+	border-bottom-right-radius:3px;
+	border-bottom-left-radius:3px;
+	margin-bottom:50px;
+}
+.text-main-content {
+	line-height:30px;
+	font-size:1.3rem;
+	color:rgba(0,0,0,0.75);
+}
+#iau9 {
+	font-family:Arial,Helvetica,sans-serif;
+}
+#ij2gh {
+	font-size:2.5rem;
+}
+#igrx8 {
+	padding:10px;
+	max-width:750px;
+	margin-bottom:25px;
+	padding-left:0px;
+	padding-right:0px;
+}
+#isn3p {
+	padding:10px;
+	padding-left:20px;
+	padding-right:20px;
+	text-transform:uppercase;
+	font-family:Arial,Helvetica,sans-serif;
+	letter-spacing:3px;
+	background-color:black;
+	color:white;
+	display:inline-block;
+	border-top-left-radius:3px;
+	border-top-right-radius:3px;
+	border-bottom-right-radius:3px;
+	border-bottom-left-radius:3px;
+}
+#imymf {
+	max-width:1200px;
+	align-items:center;
+	display:flex;
+	flex-direction:column;
+}
+#ichzi {
+	justify-content:center;
+	padding-top:80px;
+	padding-bottom:80px;
+	padding-left:20px;
+	padding-right:20px;
+}
+#ib541 {
+	gap:100px;
+	justify-content:space-between;
+}
+#iz8m8 {
+	display:flex;
+	flex-direction:column;
+	align-items:flex-start;
+	justify-content:center;
+}
+#ie2yp {
+	font-size:2.5rem;
+}
+#ip9za {
+	padding:10px;
+	max-width:750px;
+	margin-bottom:25px;
+	padding-left:0px;
+	padding-right:0px;
+}
+#ihj23 {
+	padding:10px;
+	padding-left:20px;
+	padding-right:20px;
+	text-transform:uppercase;
+	font-family:Arial,Helvetica,sans-serif;
+	letter-spacing:3px;
+	background-color:black;
+	color:white;
+	display:inline-block;
+	border-top-left-radius:3px;
+	border-top-right-radius:3px;
+	border-bottom-right-radius:3px;
+	border-bottom-left-radius:3px;
+}
+#i07yy {
+	display:flex;
+	flex-direction:column;
+	align-items:flex-end;
+	justify-content:center;
+	text-align:right;
+}
+#i297f {
+	gap:100px;
+	justify-content:space-between;
+}
+#ifx1t {
+	max-width:1200px;
+	align-items:center;
+	display:flex;
+	flex-direction:column;
+}
+#ixig3 {
+	justify-content:center;
+	padding-top:80px;
+	padding-bottom:80px;
+	padding-left:20px;
+	padding-right:20px;
+}
+.gjs-grid-column.feature-item {
+	padding-top:15px;
+	padding-right:15px;
+	padding-bottom:15px;
+	padding-left:15px;
+	display:flex;
+	flex-direction:column;
+	align-items:center;
+	gap:15px;
+	min-width:30%;
+}
+.gjs-grid-column.testimonial-item {
+	padding-top:15px;
+	padding-right:15px;
+	padding-bottom:15px;
+	padding-left:15px;
+	display:flex;
+	flex-direction:column;
+	gap:15px;
+	min-width:45%;
+	background-color:rgba(247,246,246,1);
+	border-top-left-radius:5px;
+	border-top-right-radius:5px;
+	border-bottom-right-radius:5px;
+	border-bottom-left-radius:5px;
+	align-items:flex-start;
+}
+#ilriti {
+	max-width:1200px;
+	display:flex;
+	flex-direction:column;
+}
+#iv3be5 {
+	justify-content:center;
+	padding-top:80px;
+	padding-left:20px;
+	padding-right:20px;
+	padding-bottom:30px;
+}
+#it6g1v {
+	padding:10px;
+	text-align:center;
+	font-size:0.9rem;
+	margin-top:20px;
+}
+.gjs-divider {
+	height:3px;
+	margin:10px;
+	background-color:rgba(0,0,0,0.05);
+}
+#iz3nx3 {
+	background-color:rgba(0,0,0,1);
+	position:sticky;
+}
+#ikaj1 {
+	font-family:Courier New,Courier,monospace;
+	text-align:center;
+}
+#i8uy3 {
+	text-align:start;
+}
+.gjs-container {
+	width:90%;
+	margin:0 auto;
+	max-width:1200px;
+}
+.gjs-section {
+	display:flex;
+	padding:50px 0;
+}
+.gjs-typed {
+	padding:5px;
+}
+@keyframes fadeEffect {
+	from {
+	opacity:0;
+}
+to {
+	opacity:1;
+}
+}@media (max-width:992px) {
+	.gjs-grid-row {
+	flex-direction:column;
+}
+}
+</style>
+<body id="iau9">
+  <div class="gjs-grid-row" id="iz3nx3">
+    <div class="gjs-grid-column" id="iolodq">
+      <img id="ihtxj" src="https://avatars.githubusercontent.com/u/167224942?s=200&v=4"/><a id="ii2rd"
+        class="gjs-link">About</a><a id="icfyb" href="#i7j4v" class="gjs-link">Members</a><a id="i88iz"
+        class="gjs-link">Projects</a>
+    </div>
+  </div>
+  <div id="i4p0r" class="gjs-typed"></div>
+  <div id="irz7b" class="gjs-grid-row">
+    <div id="iycz3" class="gjs-grid-column">
+      <h1 id="irjua" class="gjs-heading">Impossible organization</h1>
+      <div id="itndw" class="text-main-content">Like a puzzle:<br/>Web &amp; Python Programmer<br/>Logic &amp; Algorytm Programmer
+      </div><a id="iar3s" href="https://github.com/orgs/ImpossibleOrganization/repositories"
+        title="Impossible: Repositories" target="_blank" class="gjs-link">View projects</a>
+    </div>
+  </div>
+  <section class="gjs-section" id="i7j4v">
+    <div class="gjs-container" id="ihqth">
+      <h1 class="gjs-heading" id="ikaj1">Members</h1>
+      <div id="ichzi" class="gjs-grid-row">
+        <div id="imymf" class="gjs-grid-column">
+          <div id="ib541" class="gjs-grid-row">
+            <div id="iz8m8" class="gjs-grid-column">
+              <h2 id="ij2gh" class="gjs-heading">IceBear</h2>
+              <div id="igrx8" class="text-main-content">Logic &amp; math programmer. Mostly builds math things like sort
+                algorytm. Co-founder of Impossible Organization.</div><a id="isn3p" href="https://github.com/icebear999"
+                class="gjs-link">VIew on github</a>
+            </div>
+          </div>
+        </div>
+        <div id="i07yy" class="gjs-grid-column">
+          <h2 id="ie2yp" class="gjs-heading">WanetsCode</h2>
+          <div id="ip9za" class="text-main-content">
+            <span id="i8uy3">More like visual programmer - doesn't work with numbers...works with view. Founder of Impossible Organization.</span>
+          </div><a id="ihj23" href="https://github.com/WanetsCode" class="gjs-link">View on github</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div id="ixig3" class="gjs-grid-row">
+    <div id="ifx1t" class="gjs-grid-column">
+      <div id="i297f" class="gjs-grid-row"></div>
+    </div>
+  </div>
+  <div id="iv3be5" class="gjs-grid-row">
+    <div id="ilriti" class="gjs-grid-column">
+      <div id="iw4bbr" class="gjs-divider"></div>
+      <div id="it6g1v">Copyright © 2024 All WanetsCode Products, All IceBear Products, All Impossible Organization
+        products</div>
+    </div>
+  </div>
+</body>
+<script>
+  var props = {"i4p0r":{"strings":["Impossible organization","Impossible organization is made to connect programmers., because we are different people. There are no worse or better. There are different, but to make the best, you have to connect different"],"type-speed":"100","start-delay":"10","back-speed":0,"smart-backspace":false,"back-delay":700,"fade-out":false,"fade-out-class":"typed-fade-out","fade-out-delay":500,"show-cursor":true,"cursor-char":"_","auto-insert-css":true,"bind-input-focus-events":false,"content-type":"html","loop":false,"loop-count":null,"shuffle":false,"attr":"","typedsrc":"https://cdn.jsdelivr.net/npm/typed.js@2.0.11"}};
+          var ids = Object.keys(props).map(function(id) { return '#'+id }).join(',');
+          var els = document.querySelectorAll(ids);
+          for (var i = 0, len = els.length; i < len; i++) {
+            var el = els[i];
+            (function(e){var t,n=this,o=(t=e.strings,Array.isArray(t)?t:t.indexOf('\n')>=0?t.split('\n'):[]),r=function(e){return parseInt(e,10)||0},a=function(e){return!!e},s=function(){var t=n;t.innerHTML='<span></span>';var s=parseInt("".concat(e['loop-count']),10);"".concat(e['type-speed']);var p={typeSpeed:r(e['type-speed']),startDelay:r(e['start-delay']),backDelay:r(e['back-delay']),backSpeed:r(e['back-speed']),smartBackspace:a(e['smart-backspace']),fadeOut:a(e['fade-out']),fadeOutClass:e['fade-out-class'],fadeOutDelay:r(e['fade-out-delay']),shuffle:a(e.shuffle),loop:a(e.loop),loopCount:isNaN(s)?1/0:s,showCursor:a(e['show-cursor']),cursorChar:e['cursor-char'],autoInsertCss:a(e['auto-insert-css']),bindInputFocusEvents:a(e['bind-input-focus-events']),attr:e.attr,contentType:e['content-type']};o&&o.length&&(p.strings=o),new window.Typed(t.children[0],p)};if(window.Typed)s();else{var p=document.createElement('script');p.src=e.typedsrc,p.onload=s,document.head.appendChild(p)}}.bind(el))(props[el.id]);
+          }
+</script>
