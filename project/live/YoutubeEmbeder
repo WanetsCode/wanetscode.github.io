@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Video Embed</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffe6e6;
+            text-align: center;
+        }
+        h1 {
+            color: #993300;
+        }
+        p {
+            color: #993300;
+        }
+        input[type="text"] {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #993300;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        button {
+            background-color: red;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #ffe6e6;
+            border: 1px solid #993300;
+            color: black;
+        }
+        #videoContainer {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>YouTube Embed</h1>
+    <p>Enter the YouTube video ID below:</p>
+    <input type="text" id="videoIdInput">
+    <button onclick="embedVideo()">Embed</button>
+    <div id="videoContainer"></div>
+
+    <script>
+        function embedVideo() {
+            const videoId = document.getElementById("videoIdInput").value;
+            const embedUrl = `https://www.youtube.com/embed/${videoId}`;
+            const iframe = document.createElement("iframe");
+            iframe.src = embedUrl;
+            iframe.width = "420";
+            iframe.height = "315";
+            document.getElementById("videoContainer").innerHTML = "";
+            document.getElementById("videoContainer").appendChild(iframe);
+        }
+    </script>
+</body>
+</html>
