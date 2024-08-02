@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infinite JSON</title>
+</head>
+<body>
+    <script>
+        // Initialize the start value
+        const startValue = 5;
+
+        // Create an object with the start value
+        const jsonObject = {
+            startValue: startValue
+        };
+
+        // Function to update the end value (simulate infinite growth)
+        function updateEndValue() {
+            // Use a large value (e.g., 1e300) to represent infinity
+            jsonObject.endValue = 1e300;
+            // Update the displayed JSON
+            document.getElementById("jsonOutput").textContent = JSON.stringify(jsonObject, null, 2);
+        }
+
+        // Call the function initially
+        updateEndValue();
+
+        // Periodically update the end value (you can adjust the interval as needed)
+        setInterval(updateEndValue, 1000);
+    </script>
+
+    <!-- Display the JSON object -->
+    <pre id="jsonOutput"></pre>
+</body>
+</html>
