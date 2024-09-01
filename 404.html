@@ -67,17 +67,17 @@
     </div>
 
     <script>
+        function breakLogo() {
+                // Create pieces
+                const piece1 = document.createElement('div');
+                const piece2 = document.createElement('div');
+         breakLogo();
         document.addEventListener('DOMContentLoaded', function() {
             const logo = document.querySelector('.logo');
             
             logo.addEventListener('animationend', function() {
-                breakLogo();
+               
             });
-            
-            function breakLogo() {
-                // Create pieces
-                const piece1 = document.createElement('div');
-                const piece2 = document.createElement('div');
                 
                 // Copy the logo styles to the pieces
                 piece1.style.cssText = piece2.style.cssText = `
