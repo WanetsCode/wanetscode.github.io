@@ -14,9 +14,11 @@
             align-items: center;
             height: 100vh;
             margin: 0;
+            overflow: hidden;
         }
         .container {
             text-align: center;
+            position: relative;
         }
         .logo {
             width: 100px;
@@ -24,9 +26,23 @@
             border: 5px solid #66fcf1;
             border-radius: 50% 50% 0 0;
             margin: 0 auto 20px;
+            animation: fall 3s ease-in forwards;
+            position: absolute;
+            top: 0;
+            left: calc(50% - 50px);
+        }
+        @keyframes fall {
+            0% {
+                top: 0;
+            }
+            100% {
+                top: 80vh; /* Adjust this value based on your layout */
+            }
         }
         .error-message {
             font-size: 24px;
+            position: relative;
+            top: 100px;
         }
         .home-link {
             color: #66fcf1;
@@ -43,10 +59,58 @@
         <div class="logo"></div>
         <div class="error-message">
             <p>Error 404: Page Not Found</p>
-            <p>Maybe I forgot to add this page...or you made a typo in the url</p>
-            <p>If you think that im wrong contact me (mrman6547@gmail.com)</p>
+            <p>Maybe I forgot to add this page...or you made a typo in the URL.</p>
+            <p>If you think that I'm wrong, contact me (mrman6547@gmail.com)</p>
         </div>
+        <br><br><br><br><br><br><br><br>
         <a class="home-link" href="https://wanetscode.github.io/start">Return to Homepage</a>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const logo = document.querySelector('.logo');
+            
+            logo.addEventListener('animationend', function() {
+                breakLogo();
+            });
+            
+            function breakLogo() {
+                // Create pieces
+                const piece1 = document.createElement('div');
+                const piece2 = document.createElement('div');
+                
+                // Copy the logo styles to the pieces
+                piece1.style.cssText = piece2.style.cssText = `
+                    width: 50px;
+                    height: 25px;
+                    border: 5px solid #66fcf1;
+                    background-color: #1e1e1e;
+                    position: absolute;
+                `;
+                
+                piece1.style.borderRadius = '50% 0 0 0';
+                piece2.style.borderRadius = '0 50% 0 0';
+                
+                piece1.style.left = logo.offsetLeft + 'px';
+                piece2.style.left = logo.offsetLeft + 50 + 'px';
+                
+                piece1.style.top = piece2.style.top = logo.offsetTop + 'px';
+                
+                // Add pieces to the container
+                document.querySelector('.container').appendChild(piece1);
+                document.querySelector('.container').appendChild(piece2);
+                
+                // Remove the original logo
+                logo.remove();
+                
+                // Animate pieces to fall apart
+                setTimeout(() => {
+                    piece1.style.transform = 'translate(-50px, 50px) rotate(-45deg)';
+                    piece2.style.transform = 'translate(50px, 50px) rotate(45deg)';
+                    piece1.style.transition = piece2.style.transition = 'transform 1s ease';
+                }, 10);
+            }
+        });
+    </script>
 </body>
 </html>
