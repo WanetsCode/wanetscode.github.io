@@ -19,6 +19,12 @@
         .container {
             text-align: center;
             position: relative;
+            width: 100%;
+            height: 100%;
+        }
+        .content {
+            position: relative;
+            top: 20%;
         }
         .logo {
             width: 100px;
@@ -26,23 +32,15 @@
             border: 5px solid #66fcf1;
             border-radius: 50% 50% 0 0;
             margin: 0 auto 20px;
-            animation: fall 3s ease-in forwards;
             position: absolute;
-            top: 0;
             left: calc(50% - 50px);
-        }
-        @keyframes fall {
-            0% {
-                top: 0;
-            }
-            100% {
-                top: 80vh; /* Adjust this value based on your layout */
-            }
         }
         .error-message {
             font-size: 24px;
-            position: relative;
-            top: 100px;
+            margin-top: 150px;
+        }
+        .small-text {
+            font-size: 14px; /* Smaller font size for the contact message */
         }
         .home-link {
             color: #66fcf1;
@@ -52,32 +50,53 @@
         .home-link:hover {
             text-decoration: underline;
         }
+        .info-text {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-size: 12px;
+            color: #66fcf1;
+            transform: rotate(-25deg);
+            pointer-events: none; /* Make sure it doesn't interfere with mouse events */
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="logo"></div>
-        <div class="error-message">
-            <p>Error 404: Page Not Found</p>
-            <p>Maybe I forgot to add this page...or you made a typo in the URL.</p>
-            <p>If you think that I'm wrong, contact me (mrman6547@gmail.com)</p>
+        
+        <div class="content">
+            <div class="logo"></div>
+            <div class="info-text">You can play with the logo using your mouse!</div>
+            <br>
+            <div class="error-message">
+                <p>Error 404: Page Not Found</p>
+                <p>Maybe I forgot to add this page...or you made a typo in the URL.</p>
+                <p class="small-text">If you think that I'm wrong, contact me (mrman6547@gmail.com)</p>
+            </div>
+            <br><br>
+            <a class="home-link" href="https://wanetscode.github.io/start">Return to Homepage</a>
+            
         </div>
-        <br><br><br><br><br><br><br><br>
-        <a class="home-link" href="https://wanetscode.github.io/start">Return to Homepage</a>
     </div>
 
     <script>
-        function breakLogo() {
+        document.addEventListener('DOMContentLoaded', function() {
+            const logo = document.querySelector('.logo');
+            const container = document.querySelector('.container');
+
+            let gravity = 0.2;  // Gravity force
+            let friction = 0.99;  // Friction to slow down the movement
+            let bounce = 0.7;  // Bounce effect
+            let pieces = [];
+
+            setTimeout(() => {
+                breakLogo();
+            }, 2000); // Delay before breaking (2 seconds)
+            
+            function breakLogo() {
                 // Create pieces
                 const piece1 = document.createElement('div');
                 const piece2 = document.createElement('div');
-         breakLogo();
-        document.addEventListener('DOMContentLoaded', function() {
-            const logo = document.querySelector('.logo');
-            
-            logo.addEventListener('animationend', function() {
-               
-            });
                 
                 // Copy the logo styles to the pieces
                 piece1.style.cssText = piece2.style.cssText = `
@@ -86,6 +105,7 @@
                     border: 5px solid #66fcf1;
                     background-color: #1e1e1e;
                     position: absolute;
+                    cursor: grab;
                 `;
                 
                 piece1.style.borderRadius = '50% 0 0 0';
@@ -97,18 +117,82 @@
                 piece1.style.top = piece2.style.top = logo.offsetTop + 'px';
                 
                 // Add pieces to the container
-                document.querySelector('.container').appendChild(piece1);
-                document.querySelector('.container').appendChild(piece2);
+                container.appendChild(piece1);
+                container.appendChild(piece2);
+                
+                // Store pieces with their velocities
+                pieces.push({el: piece1, vx: -2, vy: 2, rotation: -2});
+                pieces.push({el: piece2, vx: 2, vy: 2, rotation: 2});
                 
                 // Remove the original logo
                 logo.remove();
                 
-                // Animate pieces to fall apart
-                setTimeout(() => {
-                    piece1.style.transform = 'translate(-50px, 50px) rotate(-45deg)';
-                    piece2.style.transform = 'translate(50px, 50px) rotate(45deg)';
-                    piece1.style.transition = piece2.style.transition = 'transform 1s ease';
-                }, 10);
+                // Start the animation loop
+                animatePieces();
+                
+                // Add interaction for dragging pieces
+                pieces.forEach(piece => {
+                    piece.el.addEventListener('mousedown', (e) => startDrag(e, piece));
+                });
+            }
+            
+            function animatePieces() {
+                pieces.forEach(piece => {
+                    // Apply gravity
+                    piece.vy += gravity;
+
+                    // Apply movement
+                    let posX = piece.el.offsetLeft + piece.vx;
+                    let posY = piece.el.offsetTop + piece.vy;
+                    
+                    // Collision detection with walls
+                    if (posX <= 0 || posX + piece.el.offsetWidth >= container.clientWidth) {
+                        piece.vx *= -bounce;
+                        posX = Math.max(0, Math.min(posX, container.clientWidth - piece.el.offsetWidth));
+                    }
+                    if (posY + piece.el.offsetHeight >= container.clientHeight) {
+                        piece.vy *= -bounce;
+                        posY = container.clientHeight - piece.el.offsetHeight;
+                    }
+
+                    // Apply friction
+                    piece.vx *= friction;
+                    piece.vy *= friction;
+
+                    // Apply new position and rotation
+                    piece.el.style.left = posX + 'px';
+                    piece.el.style.top = posY + 'px';
+                    piece.el.style.transform = `rotate(${piece.rotation}deg)`;
+                    piece.rotation += piece.vx;  // Update rotation angle
+                });
+
+                requestAnimationFrame(animatePieces);
+            }
+
+            function startDrag(e, piece) {
+                e.preventDefault();
+
+                let offsetX = e.clientX - piece.el.offsetLeft;
+                let offsetY = e.clientY - piece.el.offsetTop;
+
+                function dragMove(event) {
+                    let posX = event.clientX - offsetX;
+                    let posY = event.clientY - offsetY;
+
+                    posX = Math.max(0, Math.min(posX, container.clientWidth - piece.el.offsetWidth));
+                    posY = Math.max(0, Math.min(posY, container.clientHeight - piece.el.offsetHeight));
+
+                    piece.el.style.left = posX + 'px';
+                    piece.el.style.top = posY + 'px';
+                }
+
+                function dragEnd() {
+                    document.removeEventListener('mousemove', dragMove);
+                    document.removeEventListener('mouseup', dragEnd);
+                }
+
+                document.addEventListener('mousemove', dragMove);
+                document.addEventListener('mouseup', dragEnd);
             }
         });
     </script>
