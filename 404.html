@@ -1,0 +1,113 @@
+<body>
+  <header id="iwfr" class="header-banner">
+    <div id="i63s" class="container-width">
+      <div class="logo-container">
+      </div>
+      <nav class="menu">
+      </nav>
+      <div class="clearfix">
+      </div>
+      <div id="iykkf" class="lead-title">Wanetscode has reached end of life!</div>
+      <div id="i6482" class="sub-lead-title">This site has now been transferred to a new URL, and the site has changed. You can no longer access some pages from this site. You can try opening the same page on the new URL or search for this page on the new URL.</div>
+      
+      <div id="ijnksr" class="lead-btn" onclick="searchNewSite()">Search on new site</div>
+      <div id="izz5j" class="lead-btn" onclick="openNewSite()">Open on new site</div>
+      
+    </div>
+  </header>
+
+  <script>
+    // Function to get the current page URL and construct new URLs
+    const currentUrl = window.location.href;
+    
+    function searchNewSite() {
+      // Add your search page logic, for example, redirect to a search page
+      window.location.href = `https://wanets.github.io/search?query=${encodeURIComponent(currentUrl)}`;
+    }
+
+    function openNewSite() {
+      // Open the same page on the new site
+      window.location.href = `https://wanets.github.io${window.location.pathname}`;
+    }
+  </script>
+</body>
+
+<style>
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0;
+  }
+  .clearfix {
+    clear: both;
+  }
+  .header-banner {
+    padding-top: 35px;
+    padding-bottom: 100px;
+    color: #ffffff;
+    font-family: Helvetica, serif;
+    font-weight: 100;
+    background-color: #010101;
+    background-attachment: scroll, scroll;
+    background-position: left top, center center;
+    background-repeat: repeat-y, no-repeat;
+    background-size: contain, cover;
+  }
+  .container-width {
+    width: 90%;
+    max-width: 1150px;
+    margin: 0 auto;
+  }
+  .logo-container {
+    float: left;
+    width: 50%;
+  }
+  .menu {
+    float: right;
+    width: 50%;
+  }
+  .lead-title {
+    margin: 150px 0 30px 0;
+    font-size: 40px;
+    text-align: center;
+  }
+  .sub-lead-title {
+    max-width: 650px;
+    line-height: 30px;
+    margin-bottom: 30px;
+    color: #c6c6c6;
+    text-align: center;
+  }
+  .lead-btn {
+    margin-top: 15px;
+    padding: 10px;
+    width: 190px;
+    min-height: 30px;
+    font-size: 20px;
+    text-align: center;
+    color: #000;
+    letter-spacing: 3px;
+    line-height: 30px;
+    background-color: #f1f1f1;
+    border-radius: 5px;
+    transition: all 0.5s ease;
+    cursor: pointer;
+  }
+  .lead-btn:hover {
+    background-color: #ffffff;
+    color: #000;
+  }
+  .lead-btn:active {
+    background-color: #4d114f;
+    color: #000;
+  }
+  #izz5j {
+    display: inline-block;
+    float: right;
+  }
+  #ijnksr {
+    display: inline-block;
+    margin-right: 60px;
+  }
+</style>
